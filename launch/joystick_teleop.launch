@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+
+	<!-- Running options -->
+	<arg name="params_joy"		default="$(find cnbiros_joystick)/params/params_joy.yaml" />
+
+	<rosparam subst_value="True" file="$(arg params_joy)" command="load" />
+
+	<node pkg="joy" type="joy_node" name="joy_node" output="screen" />
+	
+	<node pkg="joy_teleop" type="joy_teleop.py" name="joy_teleop">
+	</node>
+
+</launch>
